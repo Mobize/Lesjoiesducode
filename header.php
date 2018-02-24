@@ -1,3 +1,15 @@
+<?php
+require_once 'db.php';
+require_once 'config.php';
+
+$current_page = basename($_SERVER['SCRIPT_NAME']);
+
+$pages = array(
+	'index.php' => 'Home',
+	'random.php' => 'JDC aléatoire',
+	'send.php' => 'Envoyer votre JDC'
+);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +24,10 @@
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
 </head>
 <body>
 
@@ -28,16 +40,18 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html">Les Joies du Code</a>
+				<a class="navbar-brand" href="index.php">Les Joies du Code</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="index.html">Home</a></li>
-					<li><a href="random.html">JDC aléatoire</a></li>
-					<li><a href="send.html">Envoyer votre JDC</a></li>
+					<?php foreach($pages as $page_url => $page_name) {
+					$class = $current_page == $page_url ? 'active' : '';
+					?>
+					<li class="<?= $class ?>"><a href="<?= $page_url ?>"><?= $page_name ?></a></li>
+					<?php } ?>
 				</ul>
 
-				<form class="navbar-form navbar-right" action="search.html" method="GET">
+				<form class="navbar-form navbar-right" action="search.php" method="GET">
 					<div class="input-group">
 						<input name="search" type="text" class="form-control" placeholder="Rechercher une JDC...">
 						<span class="input-group-btn">
@@ -53,28 +67,3 @@
 	</nav>
 
 	<div class="container">
-
-	<h1>Une Joie du code au hasard</h1>
-
-	<hr>
-
-	<div class="post">
-	    <p>01/01/1970 par <a href="#">Claire</a></p>
-
-	    <blockquote>
-	      <p>Aujourd'hui, mon fils de 3 ans m'a réveillée soudainement en pleine nuit en pleurant. Paniquée, j'ai couru jusqu'à sa chambre. La raison de ce hurlement ? "Mais moi je veux pas de sourciiiiiiiils !" JDC</p>
-	    </blockquote>
-	</div>
-
-	</div><!-- end container -->
-
-	<footer class="footer">
-		<div class="container">
-			<p class="text-muted">Les Joies du Code © 1970</p>
-		</div>
-	</footer>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-</body>
-</html>
