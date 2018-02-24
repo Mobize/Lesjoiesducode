@@ -3,40 +3,36 @@ Les Joies Du Code
 
 #### *** DESCRIPTION *** ####
 
-Les Joies Du Code version VDM
+Connexion / inscription / déconnexion
+
+#### *** RAPPEL *** ####
+
+En PHP, pour réceptionner des données en POST depuis un formulaire, il faut réunir 3 conditions :
+
+1. Les champs de formulaire doivent être placés au sein d'une balise ``<form></form>``, la balise form est en envoyé en GET par défaut, il faut préciser ``method="POST"`` pour que le formulaire soit soumis en POST
+2. Les champs de formulaire (input, textarea, select..etc) doivent avoir un attribut ``name``
+3. Il faut un button ou un input type submit pour envoyer le formulaire
 
 #### *** CONSIGNES *** ####
 
-1. Créer la base de données "joiesducode" avec un encodage "utf8_general_ci"
+1. ``Créer la table "user" avec les champs : id, firstname, lastname, gender, email, password, newsletter, register_date``
 
-2. Créer la table "posts" avec les champs :	id, name, content, creation_date
+2. ``Sur la page register.php, récupérer puis contrôler les données du formulaire.``
+``Si pas d'erreurs, crypter le mot de passe et faire la requête d'insertion dans la table "user"``
 
-3. Afficher l'année en PHP dans le footer
+2. ``Sur la page login.php, récupérer puis contrôler les données du formulaire.``
+``Si pas d'erreurs, faire une requête qui va chercher un user pour l'email saisi par l'utilisateur.``
+``Si l'email est trouvé, comparer le mot de passe crypté avec le mot de passe saisi par l'utilisateur.``
+``Si les mots de passe correspondent, ajouter l'id, le prénom et le nom du user en session, puis rediriger vers la page d'accueil``
 
-4. Créer un fichier db.php contenant la connexion PDO
+4. ``Dans navbar.php, à l'emplacement des liens Connexion/Inscription, si l'utilisateur est connecté, afficher Bonjour prénom nom, sinon afficher les liens``
 
-5. Dans index.php, faire une requête qui va chercher les 10 derniers posts
-   Puis les afficher
+5. ``Dans send.php, vérifier si l'utilisateur est bien connecté (user id en session), sinon redirection vers login.php``
 
-6. Dans random.php, faire une requête qui va chercher un post au hasard
-   Puis l'afficher
+6. ``Créer un fichier logout.php qui déconnecte l'utilisateur, puis redirige vers la page d'accueil``
 
-7. Dans search.php, faire une requête qui va chercher un post qui contient ce qu'on a tapé dans le champ de recherche
-   Puis afficher le nombre et la liste des résultats
-
-8. Dans send.php, faire une requête qui insert un post dans la base
-   Puis afficher un message de confirmation
+7. ``Dans navbar.php, afficher après Bonjour prénom nom, un lien vers la page de déconnexion``
 
 #### *** BONUS *** ####
 
-1. Partout où on affiche un post, si le post est plus long que 100 caractères, ne garder que les 100 premiers caractères et afficher un lien qui pointe vers le post complet
-
-2. Créer un fichier post.php qui affiche le post complet
-
-3. Dans send.php, ajouter au message de confirmation un lien vers le post nouvellement créé
-
-4. Rassembler le code commun pour afficher les blocs html des posts dans une fonction displayPost($post)
-
-5. Contrôler les balises html dans les champs name et content à l'insertion des posts
-
-6. Gérer les sauts de ligne à l'affichage des posts
+- ``Au login, gérer la case à cocher Se souvenir de moi``

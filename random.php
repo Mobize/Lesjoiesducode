@@ -1,16 +1,14 @@
 <?php
-include_once 'header.php';
+require_once 'partials/header.php';
 
-$query = $db->prepare('SELECT * FROM posts ORDER BY RAND() LIMIT 1');
-$query->execute();
-$post = $query->fetch();
+$query = $db->query('SELECT * FROM articles ORDER BY RAND() LIMIT 1');
+$article = $query->fetch();
 ?>
-	<h1>Une Joie du code au hasard</h1>
 
-	<hr>
+		<h1>Une Joie du code au hasard</h1>
 
-	<?php if (!empty($post)) {
-		echo Jdc::displayPost($post);
-	} ?>
+		<hr>
 
-<?php include_once 'footer.php'; ?>
+		<?php include_once 'partials/article-common.php' ?>
+
+<?php require_once 'partials/footer.php' ?>
