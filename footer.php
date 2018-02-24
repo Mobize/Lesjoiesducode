@@ -2,7 +2,7 @@
 
 	<footer class="footer">
 		<div class="container">
-			<p class="text-muted">Les Joies du Code © 1970</p>
+			<p class="text-muted">© Les Joies du Code <?= date('Y') ?></p>
 		</div>
 	</footer>
 

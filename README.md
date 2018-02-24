@@ -1,5 +1,3 @@
-# lesjoiesducode
-
 Les Joies Du Code
 =============
 

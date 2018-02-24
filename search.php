@@ -1,23 +1,45 @@
-<?php include_once 'header.php'; ?>
+<?php
+include_once 'header.php';
 
-	<h1>2 résultats pour la recherche "bla"</h1>
+if (empty($_GET['search'])) {
+	header('Location: index.php');
+	exit();
+}
+
+$search = $_GET['search'];
+
+$sql = 'SELECT * FROM posts WHERE content LIKE :content ORDER BY creation_date DESC';
+$query = $db->prepare($sql);
+$query->bindValue('content', '%'.$search.'%', PDO::PARAM_STR);
+$query->execute();
+$posts = $query->fetchAll();
+$count_posts = count($posts);
+?>
+	<?php if ($count_posts == 0) { ?>
+	<h1>Aucun résultat pour la recherche "<?= $search ?>"</h1>
+	<?php } else { ?>
+	<h1><?= $count_posts ?> résultat(s) pour la recherche "<?= $search ?>"</h1>
 
 	<hr>
 
+	<?php foreach($posts as $post) { ?>
 	<div class="post">
-	    <p>20/02/2015 par <a href="#">Claire</a></p>
+	    <p><?= date('d/m/Y H:i:s', strtotime($post['creation_date'])) ?> par <a href="#"><?= $post['name'] ?></a></p>
 
 	    <blockquote>
-	      <p>Aujourd'hui, mon fils de 3 ans m'a réveillée soudainement en pleine nuit en pleurant. Paniquée, j'ai couru jusqu'à sa chambre. La raison de ce hurlement ? "Mais moi je veux pas de sourciiiiiiiils !" JDC</p>
+	      <p>
+	      <?php if (strlen($post['content']) > 100) { ?>
+	      <?= substr($post['content'], 0, 100).'...' ?>
+	      <br>
+	      <a href="post.php?id=<?= $post['id'] ?>">Lire la suite</a>
+	      <?php } else { ?>
+		  <?= $post['content'] ?>
+	      <?php } ?>
+	      </p>
 	    </blockquote>
 	</div>
+	<?php } ?>
 
-	<div class="post">
-	    <p>18/02/2015 par <a href="#">Bobby</a></p>
-
-	    <blockquote>
-	      <p>Aujourd'hui, j'annonce à ma fille de 11 ans qu'il neige. Sa réponse : "Tu l'as su par Facebook ?" Euh non, on a aussi des fenêtres chez nous. JDC</p>
-	    </blockquote>
-	</div>
+	<?php } ?>
 
 <?php include_once 'footer.php'; ?>
