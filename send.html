@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Les Joies du Code</title>
+	<title>Les joies du code - VDM like</title>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Signika+Negative:400,700' rel='stylesheet' type='text/css'>
+
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+	<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" id="default">
+	<!-- Theme -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme.min.css" rel="stylesheet" title="theme">
 	<link rel="stylesheet" href="css/styles.css">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -17,6 +26,7 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
+
 <body>
 
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -47,30 +57,143 @@
 						</span>
 					</div>
 				</form>
-
 			</div><!--/.nav-collapse -->
 		</div>
 	</nav>
 
 	<div class="container">
 
-	<h1>Envoyez votre Joie du code</h1>
+		<section id="wrapper">
+			<div class="row">
+				<div class="col-sm-9">
 
-	<hr>
+					<h1>Envoyez votre Joie du code</h1>
 
-	<form action="send.html" method="POST">
-		<div class="form-group">
-			<label for="name">Votre nom</label>
-			<input type="text" class="form-control" name="name" id="name" placeholder="Entrez votre nom">
-		</div>
-		<div class="form-group">
-			<label for="content">Votre Joie de code</label>
-			<textarea name="content" id="content" class="form-control" rows="5" placeholder="Contenu de votre Joie de code"></textarea>
-		</div>
-		<button type="submit" class="btn btn-default">Submit</button>
-	</form>
+					<hr>
 
-	</div><!-- end container -->
+					<form action="send.html" method="POST">
+						<div class="form-group">
+							<label for="name">Votre nom</label>
+							<input type="text" class="form-control" name="name" id="name" placeholder="Entrez votre nom">
+						</div>
+						<div class="form-group">
+							<label for="content">Votre Joie de code</label>
+							<textarea name="content" id="content" class="form-control" rows="5" placeholder="Contenu de votre Joie de code"></textarea>
+						</div>
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form>
+
+				</div>
+
+				<div id="sidebar" class="col-sm-3">
+
+					<section class="panel panel-default post-categories">
+						<div class="panel-heading"><i class="fa fa-tags"></i> <span>Catégories</span></div>
+						<ul class="list-group">
+							<li class="list-group-item">
+								<a href="">
+									Design <i class="fa fa-circle text-success pull-right"></i>
+								</a>
+							</li>
+							<li class="list-group-item">
+								<a href="">
+									Intégration <i class="fa fa-circle text-info pull-right"></i>
+								</a>
+							</li>
+							<li class="list-group-item">
+								<a href="">
+									Développement <i class="fa fa-circle text-primary pull-right"></i>
+								</a>
+							</li>
+							<li class="list-group-item active">
+								<a href="">
+									Bases de données <i class="fa fa-circle text-warning pull-right"></i>
+								</a>
+							</li>
+							<li class="list-group-item">
+								<a href="">
+									Admin sys <i class="fa fa-circle text-muted pull-right"></i>
+								</a>
+							</li>
+							<li class="list-group-item">
+								<a href="">
+									Privé <i class="fa fa-circle text-danger pull-right"></i>
+								</a>
+							</li>
+						</ul>
+					</section>
+
+					<section class="panel panel-primary post-categories">
+						<div class="panel-heading"><strong><i class="fa fa-th"></i> <span>Les 5 plus récentes</span></strong></div>
+
+						<ul class="list-group">
+							<li class="list-group-item">
+								<a href="">Lorem ipsum dolor sit amet</a>
+							</li>
+							<li class="list-group-item">
+								<a href="">Lorem ipsum dolor sit amet</a>
+							</li>
+							<li class="list-group-item">
+								<a href="">Lorem ipsum dolor sit amet</a>
+							</li>
+							<li class="list-group-item">
+								<a href="">Lorem ipsum dolor sit amet</a>
+							</li>
+							<li class="list-group-item">
+								<a href="">Lorem ipsum dolor sit amet</a>
+							</li>
+						</ul>
+					</section>
+
+					<section class="panel panel-info post-categories">
+						<div class="panel-heading"><strong><i class="fa fa-th"></i> <span>Les 5 mieux notées</span></strong></div>
+
+						<ul class="list-group">
+							<li class="list-group-item">
+								<a href="">Lorem ipsum dolor sit amet</a>
+							</li>
+							<li class="list-group-item">
+								<a href="">Lorem ipsum dolor sit amet</a>
+							</li>
+							<li class="list-group-item">
+								<a href="">Lorem ipsum dolor sit amet</a>
+							</li>
+							<li class="list-group-item">
+								<a href="">Lorem ipsum dolor sit amet</a>
+							</li>
+							<li class="list-group-item">
+								<a href="">Lorem ipsum dolor sit amet</a>
+							</li>
+						</ul>
+					</section>
+
+					<section class="panel panel-success post-categories">
+						<div class="panel-heading"><strong><i class="fa fa-th"></i> <span>Les 5 plus vues</span></strong></div>
+
+						<ul class="list-group">
+							<li class="list-group-item">
+								<a href="">Lorem ipsum dolor sit amet</a>
+							</li>
+							<li class="list-group-item">
+								<a href="">Lorem ipsum dolor sit amet</a>
+							</li>
+							<li class="list-group-item">
+								<a href="">Lorem ipsum dolor sit amet</a>
+							</li>
+							<li class="list-group-item">
+								<a href="">Lorem ipsum dolor sit amet</a>
+							</li>
+							<li class="list-group-item">
+								<a href="">Lorem ipsum dolor sit amet</a>
+							</li>
+						</ul>
+					</section>
+
+				</div>
+			</div>
+		</section>
+
+	</div>
 
 	<footer class="footer">
 		<div class="container">
@@ -80,5 +203,6 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
